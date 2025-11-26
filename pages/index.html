@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>GTM学習サンプル - テストイベント確認用</title>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N2Q2M63T');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    body {
+      font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
+      background: #f9fafc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(120deg, #4f86f7, #6cc6ff);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      padding: 20px 30px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #4f86f7;
+      border-left: 5px solid #4f86f7;
+      padding-left: 10px;
+    }
+
+    button, a {
+      display: inline-block;
+      margin: 8px 10px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      background: #e3e7ec;
+      cursor: pointer;
+      text-decoration: none;
+      color: #333;
+      transition: 0.2s;
+    }
+
+    button:hover, a:hover {
+      background: #cfd9f0;
+    }
+
+    .special {
+      background: #ffd54f;
+      border: 2px solid #ff9100;
+    }
+
+    .special:hover {
+      background: #ffb300;
+      color: white;
+    }
+
+    .spacer {
+      height: 1200px;
+      background: #eef1f5;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    form input, form button {
+      padding: 8px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      padding: 30px;
+      border-top: 1px solid #ddd;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2Q2M63T"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <h1>🧠 Google Tag Manager 学習サンプル</h1>
+    <p>クリック・スクロール・フォーム送信・ページビューイベントを確認するテスト用</p>
+  </header>
+
+  <main>
+    <!-- クリックイベント -->
+    <section>
+      <h2>① クリックイベントテスト</h2>
+      <p>👉 各ボタンをクリックして <strong>クリックトリガー</strong> を確認します。</p>
+      <button id="btn1" class="click-sample">ボタン1：通常</button>
+      <button id="btn2" class="click-sample special">ボタン2：特別スタイル</button>
+      <button id="btn3" class="click-sample">ボタン3：別ID</button>
+    </section>
+
+    <!-- リンクイベント -->
+    <section>
+      <h2>② リンククリックテスト</h2>
+      <p>👉 外部リンククリックを検出してみましょう。</p>
+      <a id="link1" href="https://example.com">リンク1：Example.com</a>
+      <a id="link2" class="special" href="https://openai.com">リンク2：OpenAI</a>
+    </section>
+
+    <!-- 通常ボタン -->
+    <section>
+      <h2>③ リンクではないボタン</h2>
+      <p>👉 「リンク付き」と「リンクなし」の違いを確認します。</p>
+      <button id="btn4">ボタン4：リンクなし</button>
+      <button id="btn5" class="special">ボタン5：特別リンクなし</button>
+    </section>
+
+    <!-- フォーム -->
+    <section>
+      <h2>④ フォーム送信イベント</h2>
+      <p>👉 GTMの「フォーム送信」トリガーでイベントを確認します。</p>
+      <form onsubmit="return false;">
+        <input type="text" name="name" placeholder="名前を入力">
+        <input type="email" name="email" placeholder="メールアドレス">
+        <button type="submit">送信</button>
+      </form>
+    </section>
+
+    <!-- スクロール -->
+    <section>
+      <h2>⑤ スクロールイベントテスト</h2>
+      <p>👉 下までスクロールして <strong>スクロールトリガー</strong> を発火。</p>
+      <div class="spacer"></div>
+    </section>
+
+    <!-- 要素表示 -->
+    <section>
+      <h2>⑥ 要素表示トリガーテスト</h2>
+      <p>👉 このボックスが画面に表示されるとイベントが発火します。</p>
+      <div id="visibility-test" style="margin-top: 600px; padding: 40px; background:#b2f2bb; border-radius: 8px; text-align:center;">
+        ✅ 表示されたらイベント発火！
+      </div>
+    </section>
+
+    <!-- ページ遷移 -->
+    <section>
+      <h2>⑦ ページ遷移テスト</h2>
+      <p><a href="page2.html">ページ2へ移動</a>（page_viewイベント確認用）</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>📘 このページは GTM 学習用のデモページです。<br>
+    詳しい解説は <a href="https://gptonline.ai/" target="_blank">GPTOnline.ai</a> にて。</p>
+  </footer>
+
+  <script>
+    // 定期的に dataLayer を確認（学習用ログ出力）
+    setInterval(() => {
+      console.log("📊 dataLayer:", JSON.stringify(window.dataLayer, null, 2));
+    }, 5000);
+  </script>
+</body>
+</html>
