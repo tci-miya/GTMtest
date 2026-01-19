@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>GTM カスタムHTMLタグ解説ページ</title>
+  <style>
+    body {
+      font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
+      background: #F9FAFC;
+      color: #333;
+      margin: 40px auto;
+      max-width: 900px;
+      padding: 20px;
+    }
+    h1 {
+      color: #4F86F7;
+      border-left: 6px solid #4F86F7;
+      padding-left: 12px;
+      margin-bottom: 30px;
+    }
+    section {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+    pre {
+      background: #F5F5DC;
+      border-radius: 8px;
+      padding: 15px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    a {
+      color: #4F86F7;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>:ハンマーとレンチ: GTM カスタムHTMLタグ専用解説ページ</h1>
+  <section>
+    <h2>カスタムHTMLタグとは？</h2>
+    <p>GTMのカスタムHTMLタグを使うと、自分で自由にHTMLやJavaScriptを埋め込み、より柔軟に計測や動作を追加できます。標準タグにない外部スクリプトの挿入や、自作トラッキング用コードなど幅広く利用可能です。</p>
+  </section>
+  <section>
+    <h2>簡単なサンプルコード</h2>
+    <pre>
+&lt;script&gt;
+  alert('カスタムHTMLタグが実行されました！');
+&lt;/script&gt;
+    </pre>
+    <p>このようにJavaScriptコードを記述し、GTMの任意のトリガーで発火させます。</p>
+  </section>
+  <section>
+    <h2>もう少し実用的な例</h2>
+    <pre>
+&lt;script&gt;
+  const div = document.createElement('div');
+  div.style.position = 'fixed';
+  div.style.bottom = '50px';
+  div.style.right = '30px';
+  div.style.padding = '10px 15px';
+  div.style.background = '#4F86F7';
+  div.style.color = 'white';
+  div.style.borderRadius = '8px';
+  div.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
+  div.style.zIndex = '9999';
+  div.textContent = 'GTMカスタムHTMLタグからのメッセージです';
+  document.body.appendChild(div);
+&lt;/script&gt;
+    </pre>
+    <p>例えば、こんな感じで画面にメッセージを動的に表示する用途にも利用できます。</p>
+  </section>
+  <section>
+    <h2>注意点</h2>
+    <ul>
+      <li>JavaScriptの記述ミスによるサイト影響に注意（コンソールエラーや表示崩れなど）</li>
+      <li>外部スクリプト読み込みの場合は遅延を考慮</li>
+      <li>プレビューで動作確認は必須</li>
+    </ul>
+  </section>
+  <section>
+    <h2>さらに深掘り</h2>
+    <p>GTMの公式ドキュメントもぜひ参照してください → <a href="https://developers.google.com/tag-manager/templates" target="_blank" rel="noopener noreferrer">GTMカスタムタグの公式ガイド</a></p>
+  </section>
+  <p><a href="index.html">← 学習サンプルページに戻る</a></p>
+</body>
+</html>
