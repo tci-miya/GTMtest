@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>GTM学習課題一覧</title>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N2Q2M63T');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    body {
+      font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
+      background: #f9fafc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(120deg, #4f86f7, #6cc6ff);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    header h1 {
+        margin: 0;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      padding: 20px 30px;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    h2 {
+      color: #4f86f7;
+      border-left: 5px solid #4f86f7;
+      padding-left: 10px;
+      margin-top: 10px;
+    }
+
+    h3 {
+      color: #333;
+      border-bottom: 2px solid #e3e7ec;
+      padding-bottom: 5px;
+      margin-top: 25px;
+    }
+
+    a {
+      color: #4f86f7;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    a:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+    
+    code {
+      background-color: #e3e7ec;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: "SF Mono", "Consolas", monospace;
+      font-size: 0.9em;
+    }
+
+    ul.conditions {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    ul.conditions li {
+      background: #f0f4f8;
+      margin-bottom: 8px;
+      padding: 12px 15px;
+      border-left: 4px solid #6cc6ff;
+      border-radius: 4px;
+    }
+    ul.conditions li strong {
+      color: #4f86f7;
+    }
+
+    /* 解説ボタン */
+    .btn-answer {
+      display: inline-block;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: none;
+      background: #ff7f00; /* 濃いオレンジ */
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      font-size: 0.9rem;
+    }
+    .btn-answer:hover {
+      background: #ffa500; /* 明るめのオレンジ */
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      padding: 30px;
+      border-top: 1px solid #ddd;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2Q2M63T"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <h1> GTM学習課題一覧 </h1>
+    <p>各課題をクリアして、GTMのスキルを向上させましょう！</p>
+  </header>
+
+  <main>
+    <!-- 課題1 -->
+    <section>
+      <h2>課題1：基本的なページビューイベント</h2>
+      <a href="kadai1.html" class="btn-answer" target="_blank" rel="noopener noreferrer" aria-label="課題1の回答へ">回答(解説付き)</a>
+      <p>特定のページを閲覧した際に、GA4へイベントを送信する設定を作成してください。</p>
+      
+      <h3>対象ページ</h3>
+      <p><a href="https://tci-miya.github.io/GTMtest/pages/customHTML.html" target="_blank" rel="noopener"><code>https://tci-miya.github.io/GTMtest/pages/customHTML.html</code></a></p>
+      
+      <h3>条件</h3>
+      <ul class="conditions">
+        <li>トリガーの条件として「Page Hostname」と「Page Path」の両方を指定してください。</li>
+        <li>GA4イベントタグのパラメータに「page_url」を追加してください。</li>
+      </ul>
+    </section>
+
+    <!-- 課題2 -->
+    <section>
+      <h2>課題2：特定のボタンクリックイベント</h2>
+      <a href="kadai2.html" class="btn-answer" target="_blank" rel="noopener noreferrer" aria-label="課題2の回答へ">回答(解説付き)</a>
+      <p>テストページ内にある「ボタン3」をクリックした際に、GA4へイベントを送信する設定を作成してください。</p>
+
+      <h3>対象ページ・要素</h3>
+      <p>ページ：<a href="https://tci-miya.github.io/GTMtest/pages/" target="_blank" rel="noopener">テストページ一覧</a> 内<br>
+         要素：「③ クリックイベントテスト」セクションの「ボタン3」</p>
+
+      <h3>条件</h3>
+      <ul class="conditions">
+        <li>トリガーの条件に「Page Path」を指定してください。</li>
+        <li>トリガーの条件に「Click Class」を指定してください。</li>
+        <li>GA4イベントタグのパラメータに、クリックされた要素のID (<code>Click ID</code>) を追加してください。</li>
+      </ul>
+    </section>
+
+    <!-- 課題3 -->
+    <section>
+      <h2>課題3：ページ遷移リンクのクリックイベント</h2>
+      <a href="kadai3.html" class="btn-answer" target="_blank" rel="noopener noreferrer" aria-label="課題3の回答へ">回答(解説付き)</a>
+      <p>テストページ内にある特定のリンクボタンをクリックした際に、GA4へイベントを送信する設定を作成してください。</p>
+
+      <h3>対象ページ・要素</h3>
+      <p>ページ：<a href="https://tci-miya.github.io/GTMtest/pages/" target="_blank" rel="noopener">テストページ一覧</a> 内<br>
+         要素：「⑧ ページ遷移テスト」セクションの「customHTML.html（カスタムHTMLタグ専用解説ページ）へ移動」ボタン</p>
+
+      <h3>条件</h3>
+      <ul class="conditions">
+        <li>トリガーの条件は自由に設定して構いません。</li>
+        <li><strong>タグのパラメータ</strong>に「クリックしたときのURL（Click URL）」と「クリックしたときのクラス（Click Classes）」を追加してください。</li>
+      </ul>
+    </section>
+
+    <!-- 課題4 -->
+    <section>
+      <h2>課題4：複数ページでのページビュー（OR条件）</h2>
+      <a href="kadai4.html" class="btn-answer" target="_blank" rel="noopener noreferrer" aria-label="課題4の回答へ">回答(解説付き)</a>
+      <p>以下の2つのページ、いずれかを閲覧した際にGA4へ同じイベントを送信する設定を作成してください。</p>
+
+      <h3>対象ページ</h3>
+      <ul>
+        <li><a href="https://tci-miya.github.io/GTMtest/pages/customHTML.html" target="_blank" rel="noopener"><code>https://tci-miya.github.io/GTMtest/pages/customHTML.html</code></a></li>
+        <li><a href="https://tci-miya.github.io/GTMtest/pages/youso.html" target="_blank" rel="noopener"><code>https://tci-miya.github.io/GTMtest/pages/youso.html</code></a></li>
+      </ul>
+      
+      <h3>条件</h3>
+      <ul class="conditions">
+        <li><code>https://tci-miya.github.io/GTMtest/pages/</code> という親階層のページでは発火しないようにしてください。</li>
+        <li><strong>1つのトリガー</strong>で上記2ページを対象に設定してください。（ヒント：正規表現や「いずれかと一致する」を使います）</li>
+        <li><strong>1つのタグ</strong>で実装し、イベント名は固定してください。</li>
+        <li>どちらのページで発火したか分析時に判断できるよう、必要なパラメータ（例: <code>Page Path</code>）をタグに設定してください。</li>
+      </ul>
+    </section>
+
+    <!-- 課題5 -->
+    <section>
+      <h2>課題5：複数要素のクリック（OR条件）</h2>
+      <a href="kadai5.html" class="btn-answer" target="_blank" rel="noopener noreferrer" aria-label="課題5の回答へ">回答(解説付き)</a>
+      <p>指定されたページの2つのボタンのうち、いずれかをクリックした際にGA4へイベントを送信する設定を作成してください。</p>
+
+      <h3>対象ページ</h3>
+      <p><a href="https://tci-miya.github.io/GTMtest/pages/" target="_blank" rel="noopener"><code>https://tci-miya.github.io/GTMtest/pages/</code></a></p>
+
+      <h3>対象要素</h3>
+      <p>「④ リンククリックテスト」セクション内の以下の2つのボタン</p>
+      <ul>
+        <li>「要素イベントテストページはこちら」ボタン</li>
+        <li>「リンク2：OpenAI」ボタン</li>
+      </ul>
+      
+      <h3>条件</h3>
+      <ul class="conditions">
+        <li><strong>1つのトリガー</strong>で上記2つのボタンを対象に設定してください。</li>
+        <li><strong>1つのタグ</strong>で実装し、イベント名は固定してください。</li>
+        <li>どちらのボタンがクリックされたか分析時に判断できるよう、必要なパラメータ（例: <code>Click Text</code>, <code>Click URL</code>）をタグに設定してください。</li>
+      </ul>
+    </section>
+
+    <!-- 課題6 -->
+    <section>
+      <h2>課題6：発展的なクリックイベント</h2>
+      <a href="kadai6.html" class="btn-answer" target="_blank" rel="noopener noreferrer" aria-label="課題6の回答へ">回答(解説付き)</a>
+      <p>以下のページのボタンをクリックした際に、GA4へイベントを送信する設定を作成してください。</p>
+
+      <h3>対象ページ・要素</h3>
+      <p>ページ：<a href="https://tci-miya.github.io/GTMtest/pages/youso.html" target="_blank" rel="noopener"><code>https://tci-miya.github.io/GTMtest/pages/youso.html</code></a><br>
+         要素：「要素を表示する」ボタン</p>
+
+      <h3>条件</h3>
+      <ul class="conditions">
+        <li>トリガー条件やタグのパラメータは自由に設定してください。必要だと感じるものを考慮して実装しましょう。</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>📘 GTM学習サポート by <a href="https://gptonline.ai/" target="_blank" rel="noopener noreferrer">GPTOnline.ai</a></p>
+  </footer>
+  
+</body>
+</html>
