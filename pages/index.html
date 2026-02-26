@@ -43,6 +43,14 @@
       border-left: 5px solid #4f86f7;
       padding-left: 10px;
     }
+    /* 強調エリア用のスタイル */
+    .important-box {
+      background: #fff4f4;
+      border: 1px solid #ffcccc;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
     /* ボタン共通の強調スタイル */
     button.emphasized, a.emphasized {
       background: #2f80ed !important;
@@ -155,9 +163,6 @@
       line-height: 1.5;
       max-width: 400px;
     }
-    #btn1-info strong, #btn2-info strong, #btn3-info strong {
-      color: #3069c9;
-    }
     /* GTM設定案内 */
     #gtm-instructions, #gtm-instructions-2, #gtm-instructions-3, #gtm-instructions-form {
       background: #fff5e1;
@@ -201,27 +206,6 @@
       margin-top: 0;
       margin-bottom: 20px;
     }
-    #gtm-extra-tips ul {
-      margin-left: 0;
-      padding-left: 16px;
-      list-style-type: disc;
-    }
-    #gtm-extra-tips li {
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-    #gtm-extra-tips li span {
-      font-weight: 400;
-      color: #2b3a00;
-    }
-    #gtm-extra-tips a {
-      font-weight: 600;
-      color: #558b2f;
-      text-decoration: underline;
-    }
-    #gtm-extra-tips a:hover {
-      color: #346524;
-    }
   </style>
 </head>
 
@@ -236,6 +220,27 @@
   </header>
 
   <main>
+    <section id="ga4-measurement-info">
+      <h2>⓪ GA4 測定IDの確認と設定</h2>
+      <p>データをGoogleアナリティクス（GA4）に飛ばすには、<strong>「測定ID」</strong>が必須です。</p>
+      
+      <h3>1. 測定IDはどこで確認する？</h3>
+      <p>GA4の管理画面から以下の手順で確認できます：</p>
+      <div class="important-box">
+        <strong>GA管理 ＞ データストリーム ＞ 対象のストリームを選択</strong><br>
+        右上に表示される <code>G-XXXXXXXXXX</code> という形式のコードが測定IDです。<br>
+        👉 <a href="https://analytics.google.com/analytics/web/#/a366622955p502939552/admin/streams/table" target="_blank" rel="noopener noreferrer">GAのデータストリーム設定画面を開く</a>
+      </div>
+
+      <h3>2. GTMでの設定方法</h3>
+      <p>GTMの「GA4 イベント」タグを作成する際、<strong>「測定ID」</strong>という入力欄にこのIDを貼り付けます。</p>
+      
+      <div id="btn1-info">
+        <strong>💡 効率的なTips：変数の活用</strong><br>
+        複数のタグで同じIDを使うため、GTMの<strong>「ユーザー定義変数（定数）」</strong>に測定IDを登録しておくと、呼び出すだけで済むのでミスが減り、管理が楽になります！
+      </div>
+    </section>
+
     <section id="pageview-info">
       <h2>① ページビューイベント設置ガイド</h2>
       <p>このページは <a href="https://tci-miya.github.io/GTMtest/pages/" target="_blank" rel="noopener noreferrer">https://tci-miya.github.io/GTMtest/pages/</a> をベースにしています。</p>
@@ -257,7 +262,6 @@
         </li>
       </ul>
       <p>このように設定することで、全ページと特定ページの両方にページビューイベントを適切に仕込めるので、データの粒度や管理がしやすくなります。</p>
-      <p>ぜひ実際にGTMでタグとトリガーを作成してみてください！</p>
     </section>
 
     <section id="devtools-guide">
@@ -268,79 +272,41 @@
           <ul>
             <li><kbd>Windows/Linux:</kbd> <code>F12</code> または <code>Ctrl + Shift + I</code></li>
             <li><kbd>Mac:</kbd> <code>Command + Option + I</code></li>
-            <li>または、要素上で右クリック → <i>検証</i> を選択</li>
           </ul>
         </li>
-        <li><strong>要素選択ツールの使い方：</strong> 開いた開発者ツール内の左上にある<span class="select-icon">要素選択アイコン（マウスの矢印）</span>をクリックして、ページ上の気になる部分をクリックすると、<code>id</code>や<code>class</code>を簡単に確認できます。 <br><strong>または</strong> <kbd>Ctrl + Shift + C</kbd> (Macは <kbd>Command + Shift + C</kbd>) を押すと、このツールに切り替わります。</li>
+        <li><strong>要素選択ツールの使い方：</strong> 開いた開発者ツール内の左上にある<span class="select-icon">要素選択アイコン（マウスの矢印）</span>をクリックして、ページ上の部分をクリックすると<code>id</code>や<code>class</code>を確認できます。</li>
       </ul>
-      <p>これを使って、クリックしたボタンのIDなどをチェックしてみてくださいね！</p>
     </section>
 
     <section>
       <h2>③ クリックイベントテスト</h2>
       <p>👉 各ボタンをクリックして <strong>クリックトリガー</strong> を確認します。</p>
       <button id="btn1" class="click-sample emphasized">ボタン1：通常</button>
-      <div id="btn1-info" aria-live="polite" aria-atomic="true">
-        <p><strong>ボタン1の情報</strong></p>
-        <ul>
-          <li><strong>id:</strong> <code>btn1</code></li>
-          <li><strong>class:</strong> <code>click-sample</code></li>
-          <li><strong>テキスト:</strong> 「ボタン1：通常」</li>
-        </ul>
-      </div>
       <div id="gtm-instructions">
         <h3>GTM設定時のポイント（ボタン1用）</h3>
-        <p>このボタンでクリックトリガーを設定するときは、以下の条件で設定してください。</p>
         <ul>
           <li><strong>トリガーの種類：</strong> 「クリック - すべての要素」</li>
           <li><strong>トリガー条件：</strong> <code>Click ID</code> 等しい <code>btn1</code></li>
-          <li><strong>タグ名（イベント名）：</strong> <code>btn1_click</code> （任意のイベント名として設定）</li>
-          <li><strong>Googleアナリティクスの設定：</strong> GAのトラッキングIDは <code>AAAAA</code> と仮設定</li>
+          <li><strong>タグ名（イベント名）：</strong> <code>btn1_click</code></li>
+          <li><strong>測定ID：</strong> 先ほど確認したID（または定数変数）を指定</li>
         </ul>
-        <p>この設定で、ボタン1がクリックされたときにGAイベントとして送信されます。</p>
       </div>
 
       <button id="btn2" class="click-sample special emphasized">ボタン2：特別スタイル</button>
-      <div id="btn2-info" aria-live="polite" aria-atomic="true">
-        <p><strong>ボタン2の情報</strong></p>
-        <ul>
-          <li><strong>id:</strong> <code>btn2</code></li>
-          <li><strong>class:</strong> <code>click-sample special</code></li>
-          <li><strong>テキスト:</strong> 「ボタン2：特別スタイル」</li>
-        </ul>
-      </div>
       <div id="gtm-instructions-2">
         <h3>GTM設定時のポイント（ボタン2用）</h3>
-        <p>まずはデベロッパーツールでこのボタンの要素を確認してみましょう。</p>
-        <p>次に、GTMで以下のように設定してみるのがおすすめです。</p>
         <ul>
           <li>トリガーの種類は「クリック - すべての要素」</li>
           <li>トリガー条件は <code>Click Classes</code> に <code>special</code> を含む</li>
-          <li>タグのイベント名は任意で <code>btn2_click</code> などと設定</li>
-          <li>GoogleアナリティクスのトラッキングIDは必要に応じて設定してください（例: <code>AAAAA</code>）</li>
         </ul>
-        <p>この方法でクラス名を使ったクリックトリガーを作成し、より柔軟なイベント計測が可能になります。</p>
       </div>
 
       <button id="btn3" class="click-sample emphasized">ボタン3：別ID</button>
-      <div id="btn3-info" aria-live="polite" aria-atomic="true">
-        <p><strong>ボタン3の情報</strong></p>
-        <ul>
-          <li><strong>id:</strong> <code>btn3</code></li>
-          <li><strong>class:</strong> <code>click-sample</code></li>
-          <li><strong>テキスト:</strong> 「ボタン3：別ID」</li>
-        </ul>
-      </div>
       <div id="gtm-instructions-3">
         <h3>GTM設定時のポイント（ボタン3用）</h3>
-        <p>このボタンはテキスト（クリックテキスト）でトリガーを設定してみましょう。</p>
         <ul>
-          <li>トリガーの種類は「クリック - すべての要素」</li>
           <li>トリガー条件は <code>Click Text</code> 等しい <code>ボタン3：別ID</code></li>
-          <li>タグのイベント名は任意で <code>btn3_click</code> などと設定</li>
-          <li>GoogleアナリティクスのトラッキングIDは必要に応じて設定してください（例: <code>AAAAA</code>）</li>
         </ul>
-        <p>これでボタンテキストを利用したクリックトリガーを体験可能です。</p>
       </div>
     </section>
 
@@ -359,28 +325,19 @@
         <input type="email" name="email" placeholder="メールアドレス" />
         <button type="submit">送信</button>
       </form>
-
       <div id="gtm-instructions-form">
-        <h3>GTM設定時のポイント（フォーム送信用）</h3>
-        <p>フォーム送信イベントの計測をするには、以下のように設定します。</p>
-        <ul>
-          <li><strong>トリガー種別：</strong> 「フォーム送信」</li>
-          <li><strong>トリガー条件例：</strong> <code>すべてのフォーム</code> または <code>特定のフォーム</code> （idやclassなどで絞ることも可能）</li>
-          <li><strong>タグのイベント名：</strong> <code>form_submit</code> など任意の名前に</li>
-          <li>フォームの属性で絞る場合は、フォームの<code>id</code>や<code>class</code>を活用してください</li>
-        </ul>
-        <p>GTM de プレビューで送信時にイベントが発火するか確認しながら設定するとよいでしょう。</p>
+        <h3>GTM設定時のポイント</h3>
+        <p>トリガー種別を「フォーム送信」にし、特定のフォームIDなどで絞り込みます。</p>
       </div>
     </section>
 
     <section>
       <h2>⑦ スクロールイベントテスト</h2>
-      <p>👉 ページをスクロールして、右下のインジケーターでスクロール率を確認しながら <strong>スクロールトリガー</strong> (例: 15%, 30%, 50%, 75%, 90%) の発火を試してみましょう。</p>
+      <p>👉 下にスクロールして、右下のインジケーターを確認しましょう。</p>
       <div class="dummy-content">
         <h3>ダミーコンテンツ (スクロール量確保用)</h3>
-        <p>このセクションはページの縦幅を確保し、スクロールイベントを発生させるために存在します。下方向へスクロールを続けてください。</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</p>
-        <p>Curabitur ac pede cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce ullamcorper. Mauris nibh. Duis a quam. Nam consectetuer blan dit, eros et tristique commodo, quam turpis egestas ipsum, a rhoncus ipsum orci eu sem. Integer neque. Mauris ultrices. Aliquam erat volutpat. Maecenas eget ante. Vestibulum quam. In hac habitasse platea dictumst. Mauris rutrum. Cras nonummy. Quisque ut odio. Nullam at em. Nam consectetuer blan dit, eros et tristique commodo, quam turpis egestas ipsum, a rhoncus ipsum orci eu sem. Integer neque. Mauris ultrices. Aliquam erat volutpat. Maecenas eget ante. Vestibulum quam. In hac habitasse platea dictumst. Mauris rutrum. Cras nonummy. Quisque ut odio. Nullam at em.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.</p>
+        <p>Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim.</p>
       </div>
     </section>
 
@@ -398,17 +355,12 @@
     <section id="gtm-extra-tips">
       <h2>🎯 GTM学習＆運用で押さえておきたいコツ</h2>
       <ul>
-        <li><strong>タグ・トリガーの命名規則は統一しよう</strong><br><span>例：「btn1_click」など分かりやすく付けて管理しやすく。</span></li>
-        <li><strong>プレビューモードはまめに確認</strong><br><span>作ったタグやトリガーが正しく動いているかリアルタイムでチェック。</span></li>
-        <li><strong>トリガーは細かく優先度を付けよう</strong><br><span>誤発火を防止できるので無駄なデータ送信を抑制可能。</span></li>
-        <li><strong>変数積極活用で柔軟な条件設定</strong><br><span>クリックIDだけでなく、ページURL、フォーム属性なども利用。</span></li>
-        <li><strong>カスタムイベントやJSトリガーで応用にチャレンジ</strong><br><span>より複雑・高度な計測もGTMで実現可能。</span></li>
-        <li><strong>変更履歴は適切に管理</strong><br><span>何をいつ変えたか明確にして運用ミスを防ぐ。</span></li>
-        <li><strong>実際のユーザーテストも同時並行で</strong><br><span>計測漏れや設置ミスを見逃さないように。</span></li>
+        <li><strong>タグ・トリガーの命名規則は統一しよう</strong></li>
+        <li><strong>プレビューモードはまめに確認</strong></li>
+        <li><strong>変数を積極的に活用して柔軟な設定を</strong></li>
       </ul>
-      <p>さらに学びたい方は <a href="https://developers.google.com/tag-manager/devguide" target="_blank" rel="noopener noreferrer">公式デベロッパーガイド</a> を参照ください。</p>
+      <p>詳細は <a href="https://developers.google.com/tag-manager/devguide" target="_blank" rel="noopener noreferrer">公式デベロッパーガイド</a> を参照ください。</p>
     </section>
-
   </main>
 
   <footer>
