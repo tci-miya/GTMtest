@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>GTM学習サンプル - テストイベント確認用</title>
 
-  <!-- Google Tag Manager -->
   <script>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -12,8 +11,6 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-N2Q2M63T');
   </script>
-  <!-- End Google Tag Manager -->
-
   <style>
     body {
       font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
@@ -47,16 +44,18 @@
       padding-left: 10px;
     }
     /* ボタン共通の強調スタイル */
-    button.emphasized {
+    button.emphasized, a.emphasized {
       background: #2f80ed !important;
       color: white !important;
       border: 2px solid #1366d6 !important;
       box-shadow: 0 4px 10px rgb(47 128 237 / 0.6);
       font-weight: bold;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-    button.emphasized:hover {
+    button.emphasized:hover, a.emphasized:hover {
       background: #1366d6 !important;
       box-shadow: 0 6px 14px rgb(19 102 214 / 0.8);
       color: white !important;
@@ -227,20 +226,16 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2Q2M63T"
     height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
   <header>
     <h1>🧠 Google Tag Manager 学習サンプル</h1>
     <p>クリック・スクロール・フォーム送信・ページビューイベントを確認するテスト用</p>
   </header>
 
   <main>
-    <!-- ① ページビューイベント設置ガイド -->
     <section id="pageview-info">
       <h2>① ページビューイベント設置ガイド</h2>
       <p>このページは <a href="https://tci-miya.github.io/GTMtest/pages/" target="_blank" rel="noopener noreferrer">https://tci-miya.github.io/GTMtest/pages/</a> をベースにしています。</p>
@@ -265,7 +260,6 @@
       <p>ぜひ実際にGTMでタグとトリガーを作成してみてください！</p>
     </section>
 
-    <!-- ② デベロッパーツールの使い方案内 -->
     <section id="devtools-guide">
       <h2>② ブラウザ デベロッパーツールの使い方</h2>
       <p>このページの要素IDやクラス名を確認してみましょう！</p>
@@ -282,7 +276,6 @@
       <p>これを使って、クリックしたボタンのIDなどをチェックしてみてくださいね！</p>
     </section>
 
-    <!-- ③ クリックイベント -->
     <section>
       <h2>③ クリックイベントテスト</h2>
       <p>👉 各ボタンをクリックして <strong>クリックトリガー</strong> を確認します。</p>
@@ -351,7 +344,6 @@
       </div>
     </section>
 
-    <!-- ④ リンククリック -->
     <section>
       <h2>④ リンククリックテスト</h2>
       <p>👉 リンククリックを検出してみましょう。</p>
@@ -359,9 +351,6 @@
       <a id="link2" class="special" href="https://openai.com">リンク2：OpenAI</a>
     </section>
 
-    <!-- ⑤ 削除済み -->
-
-    <!-- ⑥ フォーム送信イベント -->
     <section>
       <h2>⑥ フォーム送信イベント</h2>
       <p>👉 GTMの「フォーム送信」トリガーでイベントを確認します。</p>
@@ -380,11 +369,10 @@
           <li><strong>タグのイベント名：</strong> <code>form_submit</code> など任意の名前に</li>
           <li>フォームの属性で絞る場合は、フォームの<code>id</code>や<code>class</code>を活用してください</li>
         </ul>
-        <p>GTMのプレビューで送信時にイベントが発火するか確認しながら設定するとよいでしょう。</p>
+        <p>GTM de プレビューで送信時にイベントが発火するか確認しながら設定するとよいでしょう。</p>
       </div>
     </section>
 
-    <!-- ⑦ スクロールイベントテスト -->
     <section>
       <h2>⑦ スクロールイベントテスト</h2>
       <p>👉 ページをスクロールして、右下のインジケーターでスクロール率を確認しながら <strong>スクロールトリガー</strong> (例: 15%, 30%, 50%, 75%, 90%) の発火を試してみましょう。</p>
@@ -393,18 +381,20 @@
         <p>このセクションはページの縦幅を確保し、スクロールイベントを発生させるために存在します。下方向へスクロールを続けてください。</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</p>
         <p>Curabitur ac pede cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce ullamcorper. Mauris nibh. Duis a quam. Nam consectetuer blan dit, eros et tristique commodo, quam turpis egestas ipsum, a rhoncus ipsum orci eu sem. Integer neque. Mauris ultrices. Aliquam erat volutpat. Maecenas eget ante. Vestibulum quam. In hac habitasse platea dictumst. Mauris rutrum. Cras nonummy. Quisque ut odio. Nullam at em. Nam consectetuer blan dit, eros et tristique commodo, quam turpis egestas ipsum, a rhoncus ipsum orci eu sem. Integer neque. Mauris ultrices. Aliquam erat volutpat. Maecenas eget ante. Vestibulum quam. In hac habitasse platea dictumst. Mauris rutrum. Cras nonummy. Quisque ut odio. Nullam at em.</p>
-        <p>Donec consectetuer, nisl quis consectetuer iaculis, magna elit sodales est, eu laoreet quam ante eu quam. Proin nonummy, nisl nonummy semper rutrum, pede lorem ut leo. Curabitur vel eros. Nam consectetuer. Suspendisse potenti. Nunc venenatis. Ut vel dui. Cras vitae magna. Nulla facilisi. Aenean et est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum vitae sem. Vivamus ac quam. Sed eget nunc. Praesent eget enim. Duis mollis, magna eu pulvinar auctor, odio arcu aliquet nisi, at dictum nisi elit non magna. In hac habitasse platea dictumst. Nunc at elit. Vivamus vel est. Mauris vitae libero. Sed metus. Vivamus vel quam. Nunc at elit. Vivamus vel est. Mauris vitae libero. Sed metus. Vivamus vel quam.</p>
-        <p>Aenean et est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum vitae sem. Vivamus ac quam. Sed eget nunc. Praesent eget enim. Duis mollis, magna eu pulvinar auctor, odio arcu aliquet nisi, at dictum nisi elit non magna. In hac habitasse platea dictumst. Nunc at elit. Vivamus vel est. Mauris vitae libero. Sed metus. Vivamus vel quam.</p>
       </div>
     </section>
 
-    <!-- ⑧ ページ遷移テスト -->
     <section>
       <h2>⑧ ページ遷移テスト</h2>
       <p><a href="customHTML.html">customHTML.html（カスタムHTMLタグ専用解説ページ）へ移動</a></p>
     </section>
 
-    <!-- 追加コンテンツ：GTM学習のコツ -->
+    <section id="kadai-link-section">
+      <h2>⑨ 課題一覧</h2>
+      <p>学習の仕上げとして、こちらの課題一覧ページに挑戦してみましょう！</p>
+      <a href="kadaiPage.html" id="kadai-btn" class="emphasized">課題一覧ページへ移動する</a>
+    </section>
+
     <section id="gtm-extra-tips">
       <h2>🎯 GTM学習＆運用で押さえておきたいコツ</h2>
       <ul>
@@ -421,8 +411,10 @@
 
   </main>
 
+  <footer>
+    <p>&copy; 2026 GTM Learning Sample</p>
+  </footer>
 
-  <!-- スクロール率インジケーター -->
   <div id="scroll-indicator">スクロール率: 0%</div>
 
   <script>
