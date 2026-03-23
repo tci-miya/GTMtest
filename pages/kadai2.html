@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>課題2 解説ページ - GTM学習</title>
+
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N2Q2M63T');
+  </script>
+  <style>
+    body {
+      font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
+      background: #f9fafc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(120deg, #4f86f7, #6cc6ff);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #4f86f7;
+      border-left: 5px solid #4f86f7;
+      padding-left: 10px;
+      margin-top: 30px; /* 余白を少し調整 */
+      margin-bottom: 12px;
+    }
+
+    a {
+      color: #4f86f7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    img {
+      width: 100%;
+      max-width: 700px;
+      display: block;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    figure {
+      margin: 0 0 30px 0;
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    p.explanation {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 30px;
+      white-space: pre-line;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      padding: 30px;
+      border-top: 1px solid #ddd;
+      margin-top: 50px;
+    }
+
+    /* 戻るボタン */
+    .btn-back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 24px;
+      background: #4f86f7;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .btn-back:hover {
+      background: #376fde;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2Q2M63T"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <header>
+    <h1>課題2 解説ページ</h1>
+    <p>Google Tag Manager（GTM）に関する解説を行います</p>
+  </header>
+
+  <main>
+    <h2>GTM コンテナURL</h2>
+    <p>
+      以下で設定タグ・トリガーを確認できます<br>
+      <a href="https://tagmanager.google.com/?authuser=1#/container/accounts/6309908413/containers/228245319/workspaces/43" target="_blank" rel="noopener noreferrer">検証テストコンテナ</a>
+    </p>
+
+    <h2>タグの設定</h2>
+    <figure>
+      <img src="kadai2_tag.png" alt="GTMセットアップ画面のイメージ">
+      <figcaption>図1：GTM管理画面でのタグ設定例</figcaption>
+    </figure>
+
+    <p class="explanation">
+      測定IDの部分はテストGAのIDをいれております。
+      click_idというパラメータ名で、値は{{click id}}が入るように設定し、クリック時のボタンのidをパラメータとして送信できるように。
+    </p>
+
+    <h2>トリガーの設定</h2>
+    <figure>
+      <img src="kadai2_trigger.png" alt="GTMトリガー設定のイメージ">
+      <figcaption>図2：トリガーの発火条件（フィルタ）の設定</figcaption>
+    </figure>
+
+    <p class="explanation">
+      「Page Path」を今回条件として指定されている「/GTMtest/pages/」とし、class名を事前にデベロッパーツールで確認し、このボタンに付与されている「click-sample emphasized」とする。
+    </p>
+
+    <a href="kadaiPage.html" class="btn-back" aria-label="課題一覧に戻る">← 課題一覧に戻る</a>
+  </main>
+
+  <footer>
+    <p>📘 GTM学習サポート by <a href="https://gptonline.ai/" target="_blank" rel="noopener noreferrer">GPTOnline.ai</a></p>
+  </footer>
+</body>
+</html>
